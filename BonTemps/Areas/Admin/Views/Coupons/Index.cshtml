@@ -1,0 +1,73 @@
+﻿@model IEnumerable<BonTemps.Models.Coupon>
+
+@{
+    ViewBag.Title = "Coupons";
+    ViewBag.SelectedMenu = "Coupons";
+}
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        Coupons
+        <small>Overzicht</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Coupons</li>
+    </ol>
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <div class="box">
+        <div class="box-header">
+            <h1 class="box-title">Coupons</h1>
+            <div class="box-tools pull-right">
+                <a style="color: #fff;" href="@Url.Action("Create")" class="btn btn-info btn-sm" title="Toevoegen">
+                    <i class="fa fa-plus"></i>
+                </a>
+            </div>
+        </div>
+        <div class="box-body">
+            <table class="table table-responsive table-bordered">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Code)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Discount)
+                    </th>
+                    <th style="width: 80px;">
+                        QR Code
+                    </th>
+                    <th style="width: 170px;"></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.ActionLink(item.Name, "Details", new { id = item.Id })
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Code)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Discount)
+                        </td>
+                        <td>
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=70x70&data=@Html.DisplayFor(modelItem => item.Code)">
+                        </td>
+                        <td>
+                            @Html.ActionLink("Bewerken", "Edit", new { id = item.Id }) |
+                            @Html.ActionLink("Verwijderen", "Delete", new { id = item.Id })
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</section>

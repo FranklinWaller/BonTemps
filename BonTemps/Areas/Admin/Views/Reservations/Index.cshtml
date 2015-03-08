@@ -1,0 +1,85 @@
+﻿@model IEnumerable<BonTemps.Areas.Admin.ViewModels.ReservationsViewModel>
+
+@{
+    ViewBag.Title = "Reserveringen";
+    ViewBag.SelectedMenu = "Reservations";
+}
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        Reserveringen
+        <small>Overzicht</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Reserveringen</li>
+    </ol>
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <div class="box">
+        <div class="box-header">
+            <h1 class="box-title">Reseveringen</h1>
+            <div class="box-tools pull-right">
+                <a style="color: #fff;" href="@Url.Action("Create")" class="btn btn-info btn-sm" title="Toevoegen">
+                    <i class="fa fa-plus"></i>
+                </a>
+            </div>
+        </div>
+        <div class="box-body">
+            <table class="table table-responsive table-bordered">
+                <tr>
+                    <th>
+                        #
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FullName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PersonCount)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ArrivalDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.EndDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Comment)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.ActionLink("Reserving #" + item.Id, "Details", new { id = item.Id })
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FullName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PersonCount)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ArrivalDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EndDate)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Comment)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</section>

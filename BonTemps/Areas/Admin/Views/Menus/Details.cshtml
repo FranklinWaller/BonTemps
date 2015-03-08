@@ -1,0 +1,74 @@
+﻿@model BonTemps.Models.Menu
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+<link href="~/Content/css/Menu.css" rel="stylesheet" />
+<link href='http://fonts.googleapis.com/css?family=Dancing+Script' rel='stylesheet' type='text/css'>
+
+<div>
+    <h4>Menu</h4>
+    <hr />
+    <!--<dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.Raw(System.Web.HttpUtility.HtmlDecode(Model.Description))
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+
+        <dd>
+            <img src="@Html.DisplayFor(model => model.Image)" alt="Menu image"/>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MenuType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MenuType)
+        </dd>
+
+    </dl>-->
+    <div class="container-wrap">
+        <div class="left-container">
+            @if (Model.Image != null) { 
+                <img src="@Html.DisplayFor(model => model.Image)" alt="Menu image" />
+            }
+            <span>@Html.DisplayFor(model => model.Name)</span>
+            <span class="type">@Html.DisplayFor(model => model.MenuType)</span>
+            <span class="price">&euro; @Html.DisplayFor(model => model.Price)</span>
+        </div>
+        <div class="right-container">
+            <h2>@Html.DisplayNameFor(model => model.Description)</h2>
+            <p>@Html.Raw(System.Web.HttpUtility.HtmlDecode(Model.Description))</p>
+        </div>
+    </div>   
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

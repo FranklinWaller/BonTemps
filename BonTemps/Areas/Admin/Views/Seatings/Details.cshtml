@@ -1,0 +1,45 @@
+﻿@model BonTemps.Models.Seating
+
+@{
+    ViewBag.Title = "Details";
+}
+<section class="content-header">
+	<h1>
+		Tafels
+		<small>Verwijderen</small>
+	</h1>
+	<ol class="breadcrumb">
+		<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+		<li class="active">Reservaties</li>
+	</ol>
+</section>
+
+<section class="content">
+	<h3>Weet je zeker dat je dit wilt verwijderen?</h3>
+</section>
+<div>
+    <h4>Seating</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Seats)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Seats)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,54 @@
+﻿@model IEnumerable<BonTemps.Models.Seating>
+
+@{
+    ViewBag.Title = "Index";
+}
+<link href="~/Content/css/Seatings.css" rel="stylesheet" />
+<h2>Tafels aanpassen</h2>
+
+<p>
+    @Html.ActionLink("Creëer nieuwe", "Create")
+</p>
+<!--<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Seats)
+        </th>
+        <th></th>
+    </tr>-->
+
+@foreach (var item in Model)
+{
+
+    
+    string detailsUrl = "/Admin/Seatings/Edit/" + item.Id;
+    
+    
+    <a class="seating" href="@detailsUrl" title="@item.Name">
+            <h2>@Html.DisplayFor(modelItem => item.Name)</h2>
+
+            @{
+                string imageUrl = "/Content/images/seats/" + item.Seats + ".png";
+            }
+
+            <img src="@imageUrl" />
+    </a>
+    <!--<tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Seats)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>-->
+}
+
+<!--</table>-->

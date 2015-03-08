@@ -1,0 +1,1268 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Esponce.QRCode</name>
+    </assembly>
+    <members>
+        <member name="M:Esponce.QRCode.Content.IContentFormat.Parse(System.String)">
+            <summary>
+            When implemented parses the content.
+            </summary>
+            <param name="content">Content of a specific syntax.</param>
+        </member>
+        <member name="M:Esponce.QRCode.Content.IContentFormat.Build">
+            <summary>
+            When implemented builds the content.
+            </summary>
+            <returns>Returns formatted content.</returns>
+        </member>
+        <member name="M:Esponce.QRCode.Content.IContentFormat.GetFriendlyName">
+            <summary>
+            When implemented gets a friendly name to display to user.
+            </summary>
+            <returns>Returns user-friendly name.</returns>
+        </member>
+        <member name="P:Esponce.QRCode.Content.ContentFormatBase`1.IsLoading">
+            <summary>
+            Gets or sets a value indicating whether loading is in progress.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.Content.ContentFormatBase`1.Content">
+            <summary>
+            Gets or sets the original content.
+            </summary>
+        </member>
+        <member name="M:Esponce.QRCode.QRCodeClientBase.GetMimeType">
+            <summary>
+            Gets a mime type according to the selected data format.
+            </summary>
+            <returns>Returns data format mime type.</returns>
+        </member>
+        <member name="M:Esponce.QRCode.QRCodeClientBase.Serialize(System.Object)">
+            <summary>
+            Converts an object to string according to the selected data format.
+            </summary>
+            <param name="model">Object to be serialized.</param>
+            <returns>Returns a serialized model as string.</returns>
+        </member>
+        <member name="M:Esponce.QRCode.QRCodeClientBase.Deserialize``1(System.String)">
+            <summary>
+            Converts a string back to object according to the selected data format.
+            </summary>
+            <typeparam name="T">Type of expected output object.</typeparam>
+            <param name="content">Content to be deserialized.</param>
+            <returns>Returns a deserialized object.</returns>
+        </member>
+        <member name="M:Esponce.QRCode.QRCodeClientBase.Deserialize``1(System.IO.Stream)">
+            <summary>
+            Converts a string back to object according to the selected data format.
+            </summary>
+            <typeparam name="T">Type of expected output object.</typeparam>
+            <param name="stream">Stream to be deserialized.</param>
+            <returns>Returns a deserialized object.</returns>
+        </member>
+        <member name="M:Esponce.QRCode.QRCodeClientBase.CollectRateLimit(System.Net.HttpWebResponse)">
+            <summary>
+            Collects rate limit values from a HTTP response header.
+            </summary>
+            <param name="response">HTTP response object.</param>
+        </member>
+        <member name="M:Esponce.QRCode.QRCodeClientBase.Request(System.String,System.String,System.IO.Stream,System.String)">
+            <summary>
+            Makes a HTTP request and gets response stream.
+            </summary>
+            <param name="verb">HTTP method: GET, POST, etc.</param>
+            <param name="url">URL to make a request to.</param>
+            <param name="input">Content to be sent in request body. Only for POST and PUT methods.</param>
+            <param name="accept">Value for "Accept" in HTTP request header, e.g. "image/png,application/json"</param>
+            <returns>Returns response stream.</returns>
+        </member>
+        <member name="M:Esponce.QRCode.QRCodeClientBase.Request(System.String,System.String,System.Object,System.String)">
+            <summary>
+            Makes a HTTP request and gets response stream.
+            </summary>
+            <param name="verb">HTTP method: GET, POST, etc.</param>
+            <param name="url">URL to make a request to.</param>
+            <param name="model">Object to be serialized and sent in request body. Only for POST and PUT methods.</param>
+            <param name="accept">Value for "Accept" in HTTP request header, e.g. "image/png,application/json"</param>
+            <returns>Returns response stream.</returns>
+        </member>
+        <member name="M:Esponce.QRCode.QRCodeClientBase.RequestAsync(System.String,System.String,System.IO.Stream,System.Action{System.Exception,System.IO.Stream},System.String)">
+            <summary>
+            Makes a HTTP request asynchronously. Set callback to get response.
+            </summary>
+            <param name="verb">HTTP method: GET, POST, etc.</param>
+            <param name="url">URL to make a request to.</param>
+            <param name="input">Content to be sent in request body. Only for POST and PUT methods.</param>
+            <param name="callback">Callback for response. Always check for the exception first then use the response stream.</param>
+            <param name="accept">Value for "Accept" in HTTP request header, e.g. "image/png,application/json"</param>
+            <returns>Returns response stream.</returns>
+        </member>
+        <member name="M:Esponce.QRCode.QRCodeClientBase.RequestAsync(System.String,System.String,System.IO.Stream,System.Action{System.Exception,System.IO.Stream,System.Int64},System.String)">
+            <summary>
+            Makes a HTTP request asynchronously. Set callback to get response.
+            </summary>
+            <param name="verb">HTTP method: GET, POST, etc.</param>
+            <param name="url">URL to make a request to.</param>
+            <param name="input">Content to be sent in request body. Only for POST and PUT methods.</param>
+            <param name="callback">Callback for response. Always check for the exception first then use the response stream.</param>
+            <param name="accept">Value for "Accept" in HTTP request header, e.g. "image/png,application/json"</param>
+            <returns>Returns response stream.</returns>
+        </member>
+        <member name="M:Esponce.QRCode.QRCodeClientBase.RequestAsync(System.String,System.String,System.Object,System.Action{System.Exception,System.IO.Stream},System.String)">
+            <summary>
+            Makes a HTTP request asynchronously. Set callback to get response.
+            </summary>
+            <param name="verb">HTTP method: GET, POST, etc.</param>
+            <param name="url">URL to make a request to.</param>
+            <param name="model">Object to be serialized and sent in request body. Only for POST and PUT methods.</param>
+            <param name="callback">Callback for response. Always check for the exception first then use the response stream.</param>
+            <param name="accept">Value for "Accept" in HTTP request header, e.g. "image/png,application/json"</param>
+            <returns>Returns response stream.</returns>
+        </member>
+        <member name="M:Esponce.QRCode.QRCodeClientBase.RequestAsync(System.String,System.String,System.Object,System.Action{System.Exception,System.IO.Stream,System.Int64},System.String)">
+            <summary>
+            Makes a HTTP request asynchronously. Set callback to get response.
+            </summary>
+            <param name="verb">HTTP method: GET, POST, etc.</param>
+            <param name="url">URL to make a request to.</param>
+            <param name="model">Object to be serialized and sent in request body. Only for POST and PUT methods.</param>
+            <param name="callback">Callback for response. Always check for the exception first then use the response stream.</param>
+            <param name="accept">Value for "Accept" in HTTP request header, e.g. "image/png,application/json"</param>
+            <returns>Returns response stream.</returns>
+        </member>
+        <member name="P:Esponce.QRCode.QRCodeClientBase.BaseUrl">
+            <summary>
+            Gets the base URL for API calls.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.QRCodeClientBase.Format">
+            <summary>
+            Gets or sets a serializable format type for data transfer.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.QRCodeClientBase.ApiKey">
+            <summary>
+            Gets or sets API key. The key identifies and authorizes user.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.QRCodeClientBase.UseSSL">
+            <summary>
+            Gets or sets a value indicating whether to use secure line.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.QRCodeClientBase.UserAgent">
+            <summary>
+            Gets a User-Agent for HTTP request header.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.QRCodeClientBase.ApplicationName">
+            <summary>
+            Gets or sets the application name that is using the API. Value is optional and appears in UserAgent for identifying source or for solving potential problems.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.QRCodeClientBase.UriBuilder">
+            <summary>
+            Gets a helper for building URIs.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.QRCodeClientBase.RateLimitRemaining">
+            <summary>
+            Gets a number of available API calls that can be made until the rate limit counter resets. Value applies to the last called method.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.QRCodeClientBase.RateLimitTotal">
+            <summary>
+            Gets the total number of available requests per API call for a specific method. Value applies to the last called method.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.QRCodeClientBase.RateLimitReset">
+            <summary>
+            Gets duration when the rate limit counter will reset. Value in milliseconds and applies to the last called method.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.QRCodeClientBase.LastWarning">
+            <summary>
+            Gets or sets a potential warning message of last request.
+            </summary>
+        </member>
+        <member name="M:Esponce.Common.Helper.JsonSerialize(System.Object)">
+            <summary>
+            Serializes object to JSON string.
+            </summary>
+            <param name="json">Object to be serialized.</param>
+            <returns>Returns JSON string.</returns>
+            <remarks>
+            Serializable object should contain [DataContract] and [DataMember] attributes.
+            </remarks>
+        </member>
+        <member name="M:Esponce.Common.Helper.JsonDeserialize``1(System.String)">
+            <summary>
+            Deserializes JSON string to object.
+            </summary>
+            <typeparam name="T">Type of output object.</typeparam>
+            <param name="json">JSON string to be deserialized.</param>
+            <returns>Returns a new instance of T.</returns>
+            <remarks>
+            Serializable object should contain [DataContract] and [DataMember] attributes.
+            </remarks>
+        </member>
+        <member name="M:Esponce.Common.Helper.XmlSerialize(System.Object)">
+            <summary>
+            Serializes object to XML string.
+            </summary>
+            <param name="obj">Object to be serialized.</param>
+            <returns>Returns XML string.</returns>
+            <remarks>
+            Serializable object should contain [DataContract] and [DataMember] attributes.
+            </remarks>
+        </member>
+        <member name="M:Esponce.Common.Helper.XmlDeserialize``1(System.String)">
+            <summary>
+            Deserializes XML string to object.
+            </summary>
+            <typeparam name="T">Type of output object.</typeparam>
+            <param name="xml">XML string be deserialized.</param>
+            <returns>Returns a new instance of T.</returns>
+            <remarks>
+            Serializable object should contain [DataContract] and [DataMember] attributes.
+            </remarks>
+        </member>
+        <member name="M:Esponce.Common.Helper.GetColor(System.String)">
+            <summary>
+            Converts web color to a System.Windows.Media.Color.
+            </summary>
+            <param name="hex"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Esponce.Common.ISO8601">
+            <summary>
+            ISO 8601 format for date and time
+            http://www.ietf.org/rfc/rfc3339.txt
+            http://www.w3.org/TR/NOTE-datetime
+            http://en.wikipedia.org/wiki/ISO_8601
+            </summary>
+        </member>
+        <member name="M:Esponce.Common.ISO8601.GetString(System.Nullable{System.DateTime})">
+            <summary>
+            Converts date and time to ISO 8601 string: yyyy-MM-ddTHH:mm:ssZ
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Esponce.Common.ISO8601.GetDateTime(System.String)">
+            <summary>
+            Converts ISO 8601 string to date and time. ISO 8601 defines formatting "yyyy-MM-ddTHH:mm:ssZ"
+            </summary>
+            <param name="iso">String formatted as "yyyy-MM-ddTHH:mm:ssZ"</param>
+            <returns>Returns date and time.</returns>
+        </member>
+        <member name="T:Esponce.QRCode.Content.BizcardContentFormat">
+            <summary>
+            Builder and parser for BIZCARD format - a de-facto standard for QR Code business cards.
+            </summary>
+            <remarks>
+            Sample:
+            BIZCARD:N:Monkey;X:Esponce;T:Code Monkey;C:Esponce;A:432 Sherwood Circle, Lake Charles, LA 70601;B:+15551234560;E:monkey@esponce.com;; 
+            </remarks>
+        </member>
+        <member name="P:Esponce.QRCode.Content.IContactContentFormat.DisplayName">
+            <summary>
+            When implemented gets a name to display to users, usually first name, last name, or alias.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.Content.IContactContentFormat.PhoneNumber">
+            <summary>
+            When implemented gets or sets phone number.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.Content.IContactContentFormat.EmailAddress">
+            <summary>
+            When implemented gets or sets e-mail address.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.Content.IContactContentFormat.WebsiteUrl">
+            <summary>
+            When implemented gets or sets website URL.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.Content.IContactContentFormat.FullAddress">
+            <summary>
+            When implemented gets or sets address.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.Content.BizcardContentFormat.WebsiteUrl">
+            <summary>
+            Gets or sets website URL. Note that this field is not used by BIZCARD but is required by IContactContentFormat.
+            </summary>
+        </member>
+        <member name="T:Esponce.QRCode.Content.MecardContentFormat">
+            <summary>
+            Builder and parser for MECARD format (aka "Phonebook registration" from the specification)
+            </summary>
+            <remarks>
+            Sample:
+            MECARD:N:Monkey,Esponce;ADR:432 Sherwood Circle,,Lake Charles,LA 70601;TEL:+15551234560;EMAIL:monkey@esponce.com;;
+            
+            Specification:
+            http://www.nttdocomo.co.jp/english/service/developer/make/content/barcode/function/application/addressbook/index.html
+            http://www.nttdocomo.co.jp/english/service/developer/make/content/barcode/function/application/common/index.html
+            </remarks>
+        </member>
+        <member name="P:Esponce.QRCode.Content.MecardContentFormat.FriendlyName">
+            <summary>
+            Gets a friendly contact name.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.Content.MecardContentFormat.Name">
+            <summary>
+            Gets or sets a name: last name and optional first name.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.Content.MecardContentFormat.PhoneNumber">
+            <summary>
+            Gets or sets primary phone number. Can contain characters #,*,0-9
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.Content.MecardContentFormat.VideoPhoneNumber">
+            <summary>
+            Gets or sets videophone number. Can contain characters #,*,0-9
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.Content.MecardContentFormat.EmailAddress">
+            <summary>
+            Gets or sets primary e-mail address.
+            </summary>
+        </member>
+        <member name="T:Esponce.QRCode.Content.VCardContentFormat">
+            <summary>
+            Parses and builds a VCARD format.
+            </summary>
+            <remarks>
+            References:
+            http://en.wikipedia.org/wiki/VCard
+            http://tools.ietf.org/html/rfc4770
+            
+            BEGIN:VCARD
+            VERSION:2.1
+            N:Esponce;Monkey
+            FN:Monkey Esponce
+            ...
+            END:VCARD
+            </remarks>
+        </member>
+        <member name="M:Esponce.Common.ColorExtensions.ToHexString(System.Windows.Media.Color,System.Boolean)">
+            <summary>
+            Gets a hex string that represents a color, e.g. "#fff500" for yellow.
+            </summary>
+            <param name="color">Color</param>
+            <param name="alpha">Append alpha channel ordered as ARGB.</param>
+            <returns>Returns #RRGGBB or #AARRGGBB string.</returns>
+        </member>
+        <member name="M:Esponce.QRCode.Content.ContentFormatHelper.GetInlineTagName(System.String,System.Boolean)">
+            <summary>
+            Gets an inline format name, e.g. "MECARD:N:John;;" -> "MECARD".
+            Suitable for MECARD, WIFI and other inline formats.
+            </summary>
+            <param name="content">Raw content to extract format name from.</param>
+            <param name="convertToUpperCase">A value indicating whether to convert tag name letters to upper case.</param>
+            <returns>Returns a tag name or null if tag name cannot be found.</returns>
+        </member>
+        <member name="M:Esponce.QRCode.Content.ContentFormatHelper.GetBlockTagName(System.String,System.Boolean)">
+            <summary>
+            Gets a block format name, e.g. "BEGIN:VCARD" -> "VCARD".
+            Suitable for VCARD, VCALENDAR and other formats with BEGIN: and END: and new lines as separator.
+            </summary>
+            <param name="content">Raw content to extract format name from.</param>
+            <param name="convertToUpperCase">A value indicating whether to convert tag name letters to upper case.</param>
+            <returns>Returns a tag name or null if tag name cannot be found.</returns>
+        </member>
+        <member name="M:Esponce.QRCode.Content.ContentFormatHelper.ParseInline(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Parses inline content, collects tag name and key-value pairs.
+            Suitable for MECARD, WIFI and other inline formats.
+            </summary>
+            <param name="content">Raw content to be parsed.</param>
+            <param name="convertToUpperCase"></param>
+            <param name="ignoreEmptyValues"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Esponce.QRCode.Content.ContentFormatHelper.BuildInline(Esponce.QRCode.Content.ContentFormatDictionary,System.Boolean,System.Boolean)">
+            <summary>
+            Builds inline content from tag name and key-value pairs.
+            </summary>
+            <param name="dictionary"></param>
+            <param name="convertToUpperCase"></param>
+            <param name="ignoreEmptyValues"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Esponce.QRCode.Content.ContentFormatHelper.EncodeNewLine(System.String)">
+            <summary>
+            Encodes new line characters to "=0D=0A" (0x0D = '\r', 0x0A = '\n')
+            </summary>
+            <param name="multiline"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Esponce.QRCode.Content.ContentFormatHelper.DecodeNewLine(System.String)">
+            <summary>
+            Decodes new line characters to "\r\n" (0x0D = '\r', 0x0A = '\n')
+            </summary>
+            <param name="multiline"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Esponce.QRCode.Content.ContentFormatHelper.Escape(System.String)">
+            <summary>
+            Add special characters to escape sequence notation, e.g. ":" goes to "¥:"
+            </summary>
+            <returns></returns>
+            <remarks>
+            See note in Common Items documentation
+            http://www.nttdocomo.co.jp/english/service/developer/make/content/barcode/function/application/common/index.html
+            </remarks>
+        </member>
+        <member name="M:Esponce.QRCode.Content.ContentFormatHelper.Unescape(System.String)">
+            <summary>
+            Removes escape sequence notation, e.g. "¥:" goes to ":" in "URL:http¥://i.nttdocomo.co.jp/;"
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+            <remarks>
+            See note in Common Items documentation
+            http://www.nttdocomo.co.jp/english/service/developer/make/content/barcode/function/application/common/index.html
+            </remarks>
+        </member>
+        <member name="M:Esponce.QRCode.Content.ContentFormatHelper.Split(System.String)">
+            <summary>
+            Gets array from string.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Esponce.QRCode.Content.ContentFormatDictionary.Name">
+            <summary>
+            Gets or sets a tag name, e.g. "MECARD"
+            </summary>
+        </member>
+        <member name="M:Esponce.QRCode.LocationHelper.GetCountryName(System.String)">
+            <summary>
+            Gets English country name by two-letter country code.
+            </summary>
+            <param name="code"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Esponce.QRCode.LocationHelper.Countries">
+            <summary>
+            Gets a list of two-letter country codes and country names in English.
+            </summary>
+        </member>
+        <member name="F:Esponce.QRCode.ExportFormat.CSV">
+            <summary>
+            Comma-separated values, separator char is comma (,)
+            </summary>
+        </member>
+        <member name="F:Esponce.QRCode.ExportFormat.XLS">
+            <summary>
+            XLS content
+            </summary>
+        </member>
+        <member name="F:Esponce.QRCode.ExportFormat.XML">
+            <summary>
+            XML content
+            </summary>
+        </member>
+        <member name="F:Esponce.QRCode.ExportFormat.JSON">
+            <summary>
+            JSON content
+            </summary>
+        </member>
+        <member name="F:Esponce.QRCode.ExportFormat.ZIP_PNG">
+            <summary>
+            ZIP package with PNG images
+            </summary>
+        </member>
+        <member name="F:Esponce.QRCode.ExportFormat.ZIP_EPS">
+            <summary>
+            ZIP package with EPS images
+            </summary>
+        </member>
+        <member name="F:Esponce.QRCode.ExportFormat.ZIP_SVG">
+            <summary>
+            ZIP package with SVG images
+            </summary>
+        </member>
+        <member name="F:Esponce.QRCode.ImportFormat.CSV">
+            <summary>
+            Comma-separated values, separator char is comma (,)
+            </summary>
+        </member>
+        <member name="F:Esponce.QRCode.ImportFormat.XLS">
+            <summary>
+            XLS content
+            </summary>
+        </member>
+        <member name="F:Esponce.QRCode.ImportFormat.XML">
+            <summary>
+            XML content
+            </summary>
+        </member>
+        <member name="F:Esponce.QRCode.ImportFormat.JSON">
+            <summary>
+            JSON content
+            </summary>
+        </member>
+        <member name="F:Esponce.QRCode.ImportFormat.ZIP_PNG">
+            <summary>
+            ZIP package with PNG images
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.DecodeEventArgs.Error">
+            <summary>
+            Gets or sets an error that may have occurred while processing the request.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.DecodeEventArgs.Content">
+            <summary>
+            Gets or sets a message from QR Code.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.DecodeEventArgs.Version">
+            <summary>
+            Gets or sets a QR Code version. Values 1-40 or null.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.DecodeEventArgs.ErrorCorrection">
+            <summary>
+            Gets or sets the error correction level.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.DecodeEventArgs.Dimension">
+            <summary>
+            Gets or sets a number of modules in row or column.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.DecodeEventArgs.Capacity">
+            <summary>
+            Gets or sets the capacity of QR Code - maximum possible length of bytes to be stored in QR Code.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.DecodeEventArgs.Length">
+            <summary>
+            Gets or sets length of stored content in bytes.
+            </summary>
+        </member>
+        <member name="M:Esponce.QRCode.GenerateEventArgs.GetData">
+            <summary>
+            Reads the response stream as byte array.
+            </summary>
+            <returns>Returns read stream as byte array.</returns>
+        </member>
+        <member name="P:Esponce.QRCode.GenerateEventArgs.Error">
+            <summary>
+            Gets or sets an error that may have occurred while processing the request.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.GenerateEventArgs.Stream">
+            <summary>
+            Gets or sets QR Code image.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.GenerateEventArgs.ContentLength">
+            <summary>
+            Gets or sets length of stream.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.TrackCampaignEventArgs.Error">
+            <summary>
+            Gets or sets an error that may have occurred while processing the request.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.TrackCampaignEventArgs.Campaign">
+            <summary>
+            Gets or sets a trackable campaign.
+            </summary>
+        </member>
+        <member name="M:Esponce.QRCode.TrackExportEventArgs.GetData">
+            <summary>
+            Reads the response stream as byte array.
+            </summary>
+            <returns>Returns read stream as byte array.</returns>
+        </member>
+        <member name="P:Esponce.QRCode.TrackExportEventArgs.Error">
+            <summary>
+            Gets or sets an error that may have occurred while processing the request.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.TrackExportEventArgs.Stream">
+            <summary>
+            Gets or sets exported data.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.TrackExportEventArgs.Items">
+            <summary>
+            Gets or sets individual exported records. Note: this property is set only when requesting ExportTrackRecordsAsync() - method without arguments.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.TrackImportEventArgs.Error">
+            <summary>
+            Gets or sets an error that may have occurred while processing the request.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.TrackListEventArgs.Error">
+            <summary>
+            Gets or sets an error that may have occurred while processing the request.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.TrackListEventArgs.Result">
+            <summary>
+            Gets or sets a list of trackable campaigns and QR Codes.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.TrackQRCodeEventArgs.Error">
+            <summary>
+            Gets or sets an error that may have occurred while processing the request.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.TrackQRCodeEventArgs.Result">
+            <summary>
+            Gets or sets a trackable QR Code.
+            </summary>
+        </member>
+        <member name="M:Esponce.QRCode.TrackStatisticsEventArgs.GetData">
+            <summary>
+            Reads the response stream as byte array.
+            </summary>
+            <returns>Returns read stream as byte array.</returns>
+        </member>
+        <member name="P:Esponce.QRCode.TrackStatisticsEventArgs.Error">
+            <summary>
+            Gets or sets an error that may have occurred while processing the request.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.TrackStatisticsEventArgs.Stream">
+            <summary>
+            Gets or sets exported data.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.TrackStatisticsEventArgs.Records">
+            <summary>
+            Gets or sets individual scan records. Note: this property is set only when requesting GetTrackStatisticsAsync(string id) - method with one parameter.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.QRCodeException.ErrorCode">
+            <summary>
+            Gets or sets API-specific error code to identify the problem.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.QRCodeException.Hint">
+            <summary>
+            Gets or sets hint how to solve the problem.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.QRCodeException.StatusCode">
+            <summary>
+            Gets or sets HTTP status code from response, e.g. 404
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.QRCodeException.StatusDescription">
+            <summary>
+            Gets or sets HTTP status description from response, e.g. "Not Found"
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.QRCodeModel.Content">
+            <summary>
+            Gets or sets a message to be written or read from QR Code.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.QRCodeModel.Format">
+            <summary>
+            Gets or sets the output format.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.QRCodeModel.Size">
+            <summary>
+            Gets or sets a QR Code module size in pixels.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.QRCodeModel.ImageSize">
+            <summary>
+            Gets or sets overall image size in pixels. Both width and height must be equal.
+            Note that this parameter overrides the "Size" property.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.QRCodeModel.Version">
+            <summary>
+            Gets or sets a QR Code version. Values 1-40 or null to be automatically determined.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.QRCodeModel.Padding">
+            <summary>
+            Gets or sets the padding value in modules.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.QRCodeModel.EncodeMode">
+            <summary>
+            Gets or sets the encoding mode.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.QRCodeModel.ErrorCorrection">
+            <summary>
+            Gets or sets the error correction level. Message can be recovered if QR code is partially damaged,
+            recovery percent defines the error correction level (up to 30%).
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.QRCodeModel.Foreground">
+            <summary>
+            Gets or sets ARGB color for foreground.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.QRCodeModel.Background">
+            <summary>
+            Gets or sets ARGB color for background.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.QRCodeModel.Shorten">
+            <summary>
+            Gets or sets an URL shortener service.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.QRCodeModel.Dimension">
+            <summary>
+            Gets or sets a number of modules in row or column.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.QRCodeModel.Capacity">
+            <summary>
+            Gets or sets the capacity of QR Code - maximum possible length of bytes to be stored in QR Code.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.QRCodeModel.Length">
+            <summary>
+            Gets or sets length of stored content in bytes.
+            </summary>
+        </member>
+        <member name="M:Esponce.QRCode.QRCodeUriBuilder.BuildGenerateUrl(Esponce.QRCode.QRCodeModel,System.Boolean,System.String)">
+            <summary>
+            Gets a URL for "generate" method.
+            </summary>
+            <param name="model">Object containing content and parameters to generate a QR Code.</param>
+            <param name="attachment">A value indicating whether to offer file as download. Usually used in web browsers.</param>
+            <param name="filename">Optionally suggested file name for attachment. Only when "attachment" parameter is set to "true"</param>
+            <returns></returns>
+        </member>
+        <member name="P:Esponce.QRCode.Models.IRecord.Name">
+            <summary>
+            When implemented gets or sets a name of record, e.g. X axis name on chart.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.Models.IRecord.Count">
+            <summary>
+            When implemented gets or sets value of record, e.g. value for Y axis on chart.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.Models.CountryRecord.CountryCode">
+            <summary>
+            Gets or sets two letter country code.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.Models.CountryRecord.Count">
+            <summary>
+            Gets or sets number of records in the group.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.Models.CountryRecord.Name">
+            <summary>
+            Gets two letter country code or "--" if country code is not available.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.Models.DateRecord.Date">
+            <summary>
+            Gets or sets date of groupped records.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.Models.DateRecord.Count">
+            <summary>
+            Gets or sets number of records in the group.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.Models.DateRecord.Name">
+            <summary>
+            Gets time formatted as "yyyy-MM-dd"
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.Models.DateRecord.Day">
+            <summary>
+            Gets day of month.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.Models.DateRecord.Month">
+            <summary>
+            Gets month number (1..Jan, 2..Feb, etc.)
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.Models.DateRecord.Year">
+            <summary>
+            Gets year number.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.Models.DeviceRecord.Count">
+            <summary>
+            Gets or sets number of records in the group.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.Models.DeviceRecord.Name">
+            <summary>
+            Gets or sets either device name (manufacturer + model) or device platform. Returns "N/A" on unknown device/platform.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.Models.DeviceRecord.Manufacturer">
+            <summary>
+            Gets or sets device manufacturer, e.g. Samsung, Apple, Nokia
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.Models.DeviceRecord.ModelName">
+            <summary>
+            Gets or sets device model name, e.g. iPhone, Lumia 800
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.Models.DeviceRecord.Platform">
+            <summary>
+            Gets or sets platform name, e.g. iOS, Android, Windows Phone
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.Models.Record.DeviceName">
+            <summary>
+            Gets device name: manufacturer + model name.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.Models.Record.DeviceManufacturer">
+            <summary>
+            Gets or sets device manufacturer name.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.Models.Record.DeviceModel">
+            <summary>
+            Gets or sets device model name.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.Models.Record.SystemName">
+            <summary>
+            Gets or sets platform name.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.Models.Record.SystemVersion">
+            <summary>
+            Gets or sets platform version.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.Models.Record.BrowserName">
+            <summary>
+            Gets or sets application name.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.Models.Record.BrowserVersion">
+            <summary>
+            Gets or sets application version.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.Models.Record.City">
+            <summary>
+            Gets or sets city of scan.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.Models.Record.CountryCode">
+            <summary>
+            Gets or sets two letter country code.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.Models.Record.Latitude">
+            <summary>
+            Gets or sets latitude part of scan location.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.Models.Record.Longitude">
+            <summary>
+            Gets or sets longitude part of scan location.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.Models.Record.Created">
+            <summary>
+            Gets or sets the timestamp of the record.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.Models.Record.Date">
+            <summary>
+            Gets only the date part of "Created" property.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.Models.Record.IsMobileDevice">
+            <summary>
+            Gets or sets a value indicating whether the device is mobile device, i.e. phone or tablet
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.Models.Record.IsTablet">
+            <summary>
+            Gets or sets a value indicating whether the device is tablet.
+            </summary>
+        </member>
+        <member name="T:Esponce.QRCode.TrackDataModel">
+            <summary>
+            Model for import/export record
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.TrackDataModel.Name">
+            <summary>
+            Gets or sets QR Code name.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.TrackDataModel.CampaignName">
+            <summary>
+            Gets or sets campaign name.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.TrackDataModel.Content">
+            <summary>
+            Gets or sets QR Code content.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.TrackDataModel.TrackUrl">
+            <summary>
+            Gets or sets short URL for tracking.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.TrackDataModel.Created">
+            <summary>
+            Gets or sets date and time when the QR Code has been created.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.TrackDataModel.Scans">
+            <summary>
+            Gets or sets number of scans.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.TrackDataModel.Comments">
+            <summary>
+            Gets or sets user's comment.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.TrackDataModel.Size">
+            <summary>
+            Gets or sets QR Code module size in pixels.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.TrackDataModel.Padding">
+            <summary>
+            Gets or sets QR Code padding in modules.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.TrackDataModel.Version">
+            <summary>
+            Gets or sets QR Code version.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.TrackDataModel.EncodeMode">
+            <summary>
+            Gets or sets content encode mode: Byte, Alphanumeric or Numeric.
+            </summary>
+        </member>
+        <member name="P:Esponce.QRCode.TrackDataModel.ErrorCorrection">
+            <summary>
+            Gets or sets error correction level: L, M, H, Q
+            </summary>
+        </member>
+        <member name="M:Esponce.QRCode.QRCodeClient.Generate(System.String,System.String,System.Int32,System.Int32,System.Nullable{System.Int16},Esponce.QRCode.QREncodeMode,Esponce.QRCode.QRErrorCorrection,System.Nullable{System.Windows.Media.Color},System.Nullable{System.Windows.Media.Color},System.String)">
+            <summary>
+            Overloaded. Generates a QR Code image.
+            </summary>
+            <param name="content">A message to be encoded in QR code.</param>
+            <param name="format">Output image format.</param>
+            <param name="moduleSize">QR code module size in pixels.</param>
+            <param name="padding">QR code version. Values 1-40 or null to be automatically determined.</param>
+            <param name="version">Padding value in modules.</param>
+            <param name="em">Encoding mode.</param>
+            <param name="ec">Error correction level.</param>
+            <param name="foreground">ARGB color for foreground or null for default.</param>
+            <param name="background">ARGB color for background or null for default.</param>
+            <param name="shorten">Name of URL shortener service or null for none.</param>
+            <returns>Returns QR Code image stream.</returns>
+        </member>
+        <member name="M:Esponce.QRCode.QRCodeClient.Generate(Esponce.QRCode.QRCodeModel)">
+            <summary>
+            Generates a QR Code image.
+            </summary>
+            <param name="model">Parameters for generating a QR Code.</param>
+            <returns>Returns QR Code image stream.</returns>
+        </member>
+        <member name="M:Esponce.QRCode.QRCodeClient.GenerateAsync(System.String,System.String,System.Int32,System.Int32,System.Nullable{System.Int16},Esponce.QRCode.QREncodeMode,Esponce.QRCode.QRErrorCorrection,System.Nullable{System.Windows.Media.Color},System.Nullable{System.Windows.Media.Color},System.String)">
+            <summary>
+            Overloaded. Generates a QR Code asynchronously. Result is returned in the GenerateCompleted event.
+            </summary>
+            <param name="content">A message to be encoded in QR code.</param>
+            <param name="format">Output image format.</param>
+            <param name="moduleSize">QR code module size in pixels.</param>
+            <param name="padding">QR code version. Values 1-40 or null to be automatically determined.</param>
+            <param name="version">Padding value in modules.</param>
+            <param name="em">Encoding mode.</param>
+            <param name="ec">Error correction level.</param>
+            <param name="foreground">ARGB color for foreground or null for default.</param>
+            <param name="background">ARGB color for background or null for default.</param>
+            <param name="shorten">Name of URL shortener service or null for none.</param>
+        </member>
+        <member name="M:Esponce.QRCode.QRCodeClient.GenerateAsync(Esponce.QRCode.QRCodeModel)">
+            <summary>
+            Generates a QR Code asynchronously. Result is returned in the GenerateCompleted event.
+            </summary>
+            <param name="model">Parameters for generating a QR Code.</param>
+        </member>
+        <member name="M:Esponce.QRCode.QRCodeClient.Decode(System.IO.Stream,System.String)">
+            <summary>
+            Decodes a QR Code and returns a message.
+            </summary>
+            <param name="input">Image stream.</param>
+            <param name="format">Image format of the stream.</param>
+            <returns>Returns plain text message.</returns>
+        </member>
+        <member name="M:Esponce.QRCode.QRCodeClient.DecodeAsync(System.IO.Stream,System.String)">
+            <summary>
+            Decodes a QR Code asynchronously and returns a message in the DecodeCompleted event.
+            </summary>
+            <param name="input">Image stream.</param>
+            <param name="format">Image format of the stream.</param>
+        </member>
+        <member name="M:Esponce.QRCode.QRCodeClient.GetTrackList">
+            <summary>
+            Gets a list of campaigns and trackable QR Codes.
+            </summary>
+            <returns>Returns list of campaigns and trackable QR Codes.</returns>
+        </member>
+        <member name="M:Esponce.QRCode.QRCodeClient.GetTrackListAsync">
+            <summary>
+            Gets a list of campaigns and trackable QR Codes asynchronously. Returns result in the GetTrackListCompleted event.
+            </summary>
+        </member>
+        <member name="M:Esponce.QRCode.QRCodeClient.GetTrackStatistics(System.String)">
+            <summary>
+            Gets statistics for a trackable QR Code.
+            </summary>
+            <param name="id">QR Code identifier.</param>
+            <returns>Returns data defined by the format.</returns>
+        </member>
+        <member name="M:Esponce.QRCode.QRCodeClient.GetTrackStatistics(System.String,Esponce.QRCode.ExportFormat)">
+            <summary>
+            Gets statistics for a trackable QR Code.
+            </summary>
+            <param name="id">QR Code identifier.</param>
+            <param name="format">Export format for statistics.</param>
+            <returns>Returns data defined by the format.</returns>
+        </member>
+        <member name="M:Esponce.QRCode.QRCodeClient.GetTrackStatisticsAsync(System.String)">
+            <summary>
+            Gets statistics for a trackable QR Codes and returns result asynchronously in the TrackStatisticsCompleted event.
+            </summary>
+            <param name="id">QR Code identifier.</param>
+        </member>
+        <member name="M:Esponce.QRCode.QRCodeClient.GetTrackStatisticsAsync(System.String,Esponce.QRCode.ExportFormat)">
+            <summary>
+            Gets statistics for a trackable QR Codes and returns result asynchronously in the TrackStatisticsCompleted event.
+            </summary>
+            <param name="id">QR Code identifier.</param>
+            <param name="format">Export format for statistics.</param>
+        </member>
+        <member name="M:Esponce.QRCode.QRCodeClient.ExportTrackRecords">
+            <summary>
+            Exports campaigns and trackable QR Codes.
+            </summary>
+            <param name="format">Export format.</param>
+            <returns>Returns data defined by the format.</returns>
+        </member>
+        <member name="M:Esponce.QRCode.QRCodeClient.ExportTrackRecords(Esponce.QRCode.ExportFormat)">
+            <summary>
+            Exports campaigns and trackable QR Codes.
+            </summary>
+            <param name="format">Export format.</param>
+            <returns>Returns data defined by the format.</returns>
+        </member>
+        <member name="M:Esponce.QRCode.QRCodeClient.ExportTrackRecordsAsync">
+            <summary>
+            Exports campaigns and trackable QR Codes and returns result asynchronously in the TrackExportCompleted event.
+            </summary>
+            <param name="format">Export format.</param>
+        </member>
+        <member name="M:Esponce.QRCode.QRCodeClient.ExportTrackRecordsAsync(Esponce.QRCode.ExportFormat)">
+            <summary>
+            Exports campaigns and trackable QR Codes and returns result asynchronously in the TrackExportCompleted event.
+            </summary>
+            <param name="format">Export format.</param>
+        </member>
+        <member name="M:Esponce.QRCode.QRCodeClient.ImportTrackRecords(System.Collections.Generic.IEnumerable{Esponce.QRCode.TrackDataModel})">
+            <summary>
+            Imports campaigns and trackable QR Codes.
+            </summary>
+            <param name="input">List of items to import.</param>
+            <returns>Returns data defined by the format.</returns>
+        </member>
+        <member name="M:Esponce.QRCode.QRCodeClient.ImportTrackRecords(System.IO.Stream,Esponce.QRCode.ImportFormat)">
+            <summary>
+            Imports campaigns and trackable QR Codes.
+            </summary>
+            <param name="input">Data to upload.</param>
+            <param name="format">Format of data to upload.</param>
+            <returns>Returns data defined by the format.</returns>
+        </member>
+        <member name="M:Esponce.QRCode.QRCodeClient.ImportTrackRecordsAsync(System.Collections.Generic.IEnumerable{Esponce.QRCode.TrackDataModel})">
+            <summary>
+            Imports campaigns and trackable QR Codes and returns result asynchronously in the TrackImportCompleted event.
+            </summary>
+            <param name="input">List of items to import.</param>
+        </member>
+        <member name="M:Esponce.QRCode.QRCodeClient.ImportTrackRecordsAsync(System.IO.Stream,Esponce.QRCode.ImportFormat)">
+            <summary>
+            Imports campaigns and trackable QR Codes and returns result asynchronously in the TrackImportCompleted event.
+            </summary>
+            <param name="input">Data to upload.</param>
+            <param name="format">Format of data to upload.</param>
+        </member>
+        <member name="E:Esponce.QRCode.QRCodeClient.GenerateCompleted">
+            <summary>
+            Occurs when the GenerateAsync method returns result asynchronously.
+            </summary>
+        </member>
+        <member name="E:Esponce.QRCode.QRCodeClient.DecodeCompleted">
+            <summary>
+            Occurs when the DecodeAsync method returns result asynchronously.
+            </summary>
+        </member>
+        <member name="E:Esponce.QRCode.QRCodeClient.GetTrackListCompleted">
+            <summary>
+            Occurs when the GetTrackListAsync method returns result asynchronously.
+            </summary>
+        </member>
+        <member name="E:Esponce.QRCode.QRCodeClient.GetTrackStatisticsCompleted">
+            <summary>
+            Occurs when the TrackStatisticsAsync method returns result asynchronously.
+            </summary>
+        </member>
+        <member name="E:Esponce.QRCode.QRCodeClient.ExportTrackRecordsCompleted">
+            <summary>
+            Occurs when the TrackExportAsync method returns result asynchronously.
+            </summary>
+        </member>
+        <member name="E:Esponce.QRCode.QRCodeClient.ImportTrackRecordsCompleted">
+            <summary>
+            Occurs when the TrackImportAsync method returns result asynchronously.
+            </summary>
+        </member>
+        <member name="M:Esponce.QRCode.QRCodeHelper.GetQRCodeMatrix(System.String,System.Boolean)">
+            <summary>
+            Gets a matrix of QR Code modules where "true" means black module and "false" means white module.
+            </summary>
+            <param name="ascii">QR Code in ASCII format where 'x' stands for black module, ' ' for white module and optionally '.' for padding.</param>
+            <param name="includePadding">A value indicating whether padding modules should also be included in output.</param>
+            <returns>Returns matrix of black and white modules.</returns>
+        </member>
+        <member name="M:Esponce.QRCode.QRCodeHelper.GetMimeType(System.String)">
+            <summary>
+            Gets mime type by format.
+            </summary>
+            <param name="format">Format name as file extension without dot, e.g. "png"</param>
+            <returns>Returns mime type for the specified format or "image/png" if format not found.</returns>
+        </member>
+        <member name="M:Esponce.QRCode.QRCodeStatistics.#ctor(System.String)">
+            <summary>
+            Creates a new instance of QRCodeStatistics.
+            </summary>
+            <param name="apiKey">Esponce API key to authenticate user.</param>
+        </member>
+        <member name="M:Esponce.QRCode.QRCodeStatistics.#ctor(Esponce.QRCode.QRCodeClient)">
+            <summary>
+            Creates a new instance of QRCodeStatistics.
+            </summary>
+            <param name="client">An instance of QRCodeClient for HTTP connections. API key should be set!</param>
+        </member>
+        <member name="M:Esponce.QRCode.QRCodeStatistics.GetRecords(System.String)">
+            <summary>
+            Gets individual scan records.
+            </summary>
+            <param name="id">QR Code identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Esponce.QRCode.QRCodeStatistics.GetScansByDay(System.String)">
+            <summary>
+            Gets scans by days.
+            </summary>
+            <param name="id">QR Code identifier.</param>
+            <returns>Returns scans by day.</returns>
+        </member>
+        <member name="M:Esponce.QRCode.QRCodeStatistics.GetScansByDay(System.Collections.Generic.IEnumerable{Esponce.QRCode.Models.Record})">
+            <summary>
+            Gets scans by days.
+            </summary>
+            <param name="records">List of individual scans.</param>
+            <returns>Returns scans by day.</returns>
+        </member>
+        <member name="M:Esponce.QRCode.QRCodeStatistics.GetScansByDevice(System.String)">
+            <summary>
+            Gets scans by device manufacturer and device model name.
+            </summary>
+            <param name="id">QR Code identifier.</param>
+            <remarks>
+            x.Name = "N/A" for unknown device
+            </remarks>
+            <returns>Returns scans by device manufacturer and model name.</returns>
+        </member>
+        <member name="M:Esponce.QRCode.QRCodeStatistics.GetScansByDevice(System.Collections.Generic.IEnumerable{Esponce.QRCode.Models.Record})">
+            <summary>
+            Gets scans by device manufacturer and device model name.
+            </summary>
+            <param name="records">List of individual scans.</param>
+            <returns>Returns scans by device manufacturer and model name.</returns>
+            <remarks>
+            x.Name = "N/A" for unknown device
+            </remarks>
+        </member>
+        <member name="M:Esponce.QRCode.QRCodeStatistics.GetScansByPlatform(System.String)">
+            <summary>
+            Gets scans by platform (OS name), e.g. Android, iOS, Windows Phone
+            </summary>
+            <param name="id">QR Code identifier.</param>
+            <remarks>
+            x.Platform = "N/A" for unknown platforms
+            </remarks>
+            <returns>Returns scans by platform.</returns>
+        </member>
+        <member name="M:Esponce.QRCode.QRCodeStatistics.GetScansByPlatform(System.Collections.Generic.IEnumerable{Esponce.QRCode.Models.Record})">
+            <summary>
+            Gets scans by platform (OS name), e.g. Android, iOS, Windows Phone
+            </summary>
+            <param name="records">List of individual scans.</param>
+            <remarks>
+            x.Platform = "N/A" for unknown platforms
+            </remarks>
+            <returns>Returns scans by platform.</returns>
+        </member>
+        <member name="M:Esponce.QRCode.QRCodeStatistics.GetScansByCountry(System.String)">
+            <summary>
+            Gets scans by country.
+            </summary>
+            <param name="id">QR Code identifier.</param>
+            <remarks>
+            x.Name = "--" for unknown country
+            </remarks>
+            <returns>Returns scans by platform.</returns>
+        </member>
+        <member name="M:Esponce.QRCode.QRCodeStatistics.GetScansByCountry(System.Collections.Generic.IEnumerable{Esponce.QRCode.Models.Record})">
+            <summary>
+            Gets scans by country.
+            </summary>
+            <param name="records">List of individual scans.</param>
+            <remarks>
+            x.Name = "--" for unknown country
+            </remarks>
+            <returns>Returns scans by platform.</returns>
+        </member>
+        <member name="P:Esponce.QRCode.QRCodeStatistics.Client">
+            <summary>
+            Gets an instance of QRCodeClient that performs HTTP connections.
+            </summary>
+        </member>
+    </members>
+</doc>

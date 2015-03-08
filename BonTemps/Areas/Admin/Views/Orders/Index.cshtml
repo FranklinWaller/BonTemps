@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "Index";
+    ViewBag.SelectedMenu = "Orders";
+}
+
+<ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#">Kok</a></li>
+    <li role="presentation"><a href="/Admin/Orders/Waitress">Serveerster</a></li>
+</ul>
+
+<h2>Orders</h2>
+
+<link rel="stylesheet" href="~/Content/css/Orders.css" />
+<!--<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">-->
+<link href="~/Content/css/jquery-ui.min.css" rel="stylesheet" />
+<link href="~/Content/css/jquery-ui.theme.min.css" rel="stylesheet" />
+<link href="~/Content/css/jquery-ui.structure.min.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Content/js/jquery-ui.js"></script>
+
+<span class="internet-connection">
+    Online
+</span>
+
+<div id="accordion">
+    
+</div>
+
+<script src="~/Content/js/order.js"></script>
+<script>
+        $("#accordion").accordion({
+            heightStyle: "content"
+        });
+</script>
+
+

@@ -1,0 +1,37 @@
+﻿@model BonTemps.Models.Seating
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Weet je het zeker dat je @Html.DisplayFor(model => model.Name) wilt verwijderen?</h2>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Seats)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Seats)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Verwijder" class="btn btn-default" /> |
+            @Html.ActionLink("Terug naar overzicht", "Index")
+        </div>
+    }
+</div>

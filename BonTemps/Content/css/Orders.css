@@ -1,0 +1,83 @@
+﻿.left-order {
+    float:left;
+    margin-right:5%;
+    width:20%;
+}
+
+.right-order {
+    float:left;
+    width:75%;
+}
+
+    .right-order h4 {
+        font-weight:bolder;
+    }
+
+#accordion h3 div {
+    float:right;
+    display:block;
+}
+
+.internet-connection {
+    color:red;
+}
+
+.internet-connection.online {
+    color:green;
+}
+
+
+
+
+/* Waitress */
+
+.cards {
+    width:100%;
+    display:block;
+    margin:0 auto;
+}
+
+    .cards .card {
+        width:400px;
+        height:350px;
+        background-color:#89AFD2;
+        border-radius:2px;
+        margin:0 auto;
+        color:white;
+    }
+
+        .cards .card .img {
+            width:100%;
+            height:160px;
+            background-position:100%;
+            background-size:cover;
+            background-repeat:no-repeat;
+            margin-bottom:20px;
+        }
+
+        .cards .card h2 {
+            text-align:center;
+            padding-top:10px;
+            font-weight:200;
+        }
+
+        .cards .card .time {
+            font-size:17px;
+            font-weight:bold;
+            display:block;
+            text-align:center;
+            margin-bottom:20px;
+        }
+
+
+.ui-accordion .ui-accordion-content {
+    background-color: white;
+    border: 1px solid black;
+    border-radius:3px;
+}
+
+.ui-accordion .ui-accordion-header {
+    background-color:#4E9DCA;
+    color:white;
+    border-radius:3px;
+}

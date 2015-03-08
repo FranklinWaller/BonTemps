@@ -1,0 +1,47 @@
+﻿/*.seating {
+    max-width:120px;
+    display:inline-block;
+    margin:20px;
+}
+
+    .seating h2 {
+        font-size:15px;
+        text-align:center;
+        position:absolute;
+        margin-left:3.5%;
+        margin-top:1.5%;
+    }*/
+
+
+.seating {
+    /* force the div to properly contain the floated images: */
+    position: relative;
+    float: left;
+    clear: none;
+    overflow: hidden;
+    margin:5%;
+    font-family:sans-serif;
+}
+
+    .seating img {
+        position: relative;
+        z-index: 1;
+        width: 150px;
+        height: 150px;
+    }
+
+    .seating h2 {
+        display: block;
+        position: absolute;
+        width: 100%;
+        top: 30%;
+        left: 0;
+        z-index: 2;
+        text-align: center;
+        font-weight:200;
+        font-size: 20px;
+        color:white;
+    }
+   input#seatingcount {
+width: 60px!important;
+}
