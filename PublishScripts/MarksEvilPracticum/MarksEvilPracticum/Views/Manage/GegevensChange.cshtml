@@ -1,0 +1,38 @@
+﻿@model MarksEvilPracticum.Models.ApplicationUser
+@{
+    ViewBag.Title = "GegevensChange";
+}
+
+<h2>GegevensChange</h2>
+
+@using (Html.BeginForm("GegevensChange", "Manage", FormMethod.Post, new { @class = "form-horizontal", role = "form" })) { 
+    <div class="form-group">
+        @Html.LabelFor(m => m.Kenteken, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Kenteken, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Voornaam, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Voornaam, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Tussenvoegsel, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Tussenvoegsel, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Achternaam, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Achternaam, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-default" value="Verander" />
+        </div>
+    </div>
+}
